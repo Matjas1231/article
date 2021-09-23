@@ -8,8 +8,7 @@
     $by = $sort['by'] ?? 'id';
     $order = $sort['order'] ?? 'asc';
 
-    $phrase = $params['phrase'] ?? null;    
-    dump($_SESSION);
+    $phrase = $params['phrase'] ?? null; 
 ?>
 
 <div style="margin-bottom: 10px;">
