@@ -32,9 +32,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/?action=create">Utwórz artykuł</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/?action=createUser">Utwórz użytkownika</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="/?action=seeder">Seeder</a>
           </li>
@@ -42,6 +40,9 @@
             <li class="nav-item">
               <a class="nav-link" href="/?action=login">Zaloguj</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/?action=createUser">Zarejestruj</a>
+          </li>
             <?php else: ?>
               <li class="nav-item">
               <a class="nav-link" href="/?action=logout">Wyloguj</a>

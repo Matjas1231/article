@@ -8,37 +8,39 @@
     $by = $sort['by'] ?? 'id';
     $order = $sort['order'] ?? 'asc';
 
-    $phrase = $params['phrase'] ?? null; 
+    $phrase = $params['phrase'] ?? null;
 ?>
 
-<div style="margin-bottom: 10px;">
-    <form action="/" method="GET">
-        <div class="font-weight-bold">Ilość rekordów na stronę</div>
-        <label>15 <input name="recordSize" type="radio" value="15" <?php echo $size === 15 ? 'checked' : '' ?>> </label>
-        <label>50 <input name="recordSize" type="radio" value="50" <?php echo $size === 50 ? 'checked' : '' ?>> </label>
-        <label>80 <input name="recordSize" type="radio" value="80" <?php echo $size === 80 ? 'checked' : '' ?>> </label>
-        <label>100 <input name="recordSize" type="radio" value="100" <?php echo $size === 100 ? 'checked' : '' ?>> </label>
 
-        <div class="font-weight-bold">Wyszukaj notatkę</div>
-        <input type="text" name="phrase" value="<?php echo $phrase ?>"/>
-
-        <div class="font-weight-bold">Sortowanie</div>
-        <label>Po tytule <input type="radio" name="sortby" value='title' <?php echo $by === 'title' ? 'checked' : '' ?> /></label>
-        <label>Po id <input type="radio" name="sortby" value="id" <?php echo $by === 'id' ? 'checked' : '' ?> /></label>
-        <label>Po dacie utworzenia <input type="radio" name="sortby" value="created" <?php echo $by === 'created' ? 'checked' : '' ?> /></label>
-
-        <div class="font-weight-bold">Kierunek sortowania</div>
-        <label>Rosnąco<input type="radio" name="sortorder" value='asc' <?php echo $order === 'asc' ? 'checked' : '' ?> /></label>
-        <label>Malejąco<input type="radio" name="sortorder" value='desc' <?php echo $order === 'desc' ? 'checked' : '' ?> /></label>
-
-
-        </br><input type="submit" class="btn btn-secondary btn-sm" value="Wyślij" />
-    </form>    
-</div>
 <?php if(!isset($_SESSION['username']) || empty($_SESSION['username'])): ?>
     <div style="text-align: center;" class="font-weight-bold">Treść tylko dla zalogowanych użytkowników <br>
     <a href="/?action=login" class="btn btn-secondary">Zaloguj</a></div>
     <?php else: ?>
+    <div style="margin-bottom: 10px;">
+        <form action="/" method="GET">
+            <div class="font-weight-bold">Ilość rekordów na stronę</div>
+            <label>15 <input name="recordSize" type="radio" value="15" <?php echo $size === 15 ? 'checked' : '' ?>> </label>
+            <label>50 <input name="recordSize" type="radio" value="50" <?php echo $size === 50 ? 'checked' : '' ?>> </label>
+            <label>80 <input name="recordSize" type="radio" value="80" <?php echo $size === 80 ? 'checked' : '' ?>> </label>
+            <label>100 <input name="recordSize" type="radio" value="100" <?php echo $size === 100 ? 'checked' : '' ?>> </label>
+
+            <div class="font-weight-bold">Wyszukaj notatkę</div>
+            <input type="text" name="phrase" value="<?php echo $phrase ?>"/>
+
+            <div class="font-weight-bold">Sortowanie</div>
+            <label>Po tytule <input type="radio" name="sortby" value='title' <?php echo $by === 'title' ? 'checked' : '' ?> /></label>
+            <label>Po id <input type="radio" name="sortby" value="id" <?php echo $by === 'id' ? 'checked' : '' ?> /></label>
+            <label>Po dacie utworzenia <input type="radio" name="sortby" value="created" <?php echo $by === 'created' ? 'checked' : '' ?> /></label>
+
+            <div class="font-weight-bold">Kierunek sortowania</div>
+            <label>Rosnąco<input type="radio" name="sortorder" value='asc' <?php echo $order === 'asc' ? 'checked' : '' ?> /></label>
+            <label>Malejąco<input type="radio" name="sortorder" value='desc' <?php echo $order === 'desc' ? 'checked' : '' ?> /></label>
+
+
+            </br><input type="submit" class="btn btn-secondary btn-sm" value="Wyślij" />
+        </form>    
+    </div>
+
 <div>
     <table class="table table-striped " style="margin:auto;">
             <thead>
