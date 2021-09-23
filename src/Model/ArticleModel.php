@@ -12,7 +12,7 @@ class ArticleModel extends Model implements ModelInterface
         $description = $this->connection->quote($data['description']);
         $status = (int) $data['status'];
         $created = $this->connection->quote(date('Y-m-d H:i:s'));
-        $catId = (int) $data['categoryId'];
+        $catId = (int) $data['catId'];
 
         $query = "INSERT INTO articles (title, description, status, created, id_category)
                     VALUES($title, $description, $status, $created, $catId)";
@@ -94,6 +94,11 @@ class ArticleModel extends Model implements ModelInterface
         return (int) $result['cn'];
     }
 
+    public function truncate(): void
+    {
+        $query = "TRUNCATE articles";
+        $this->connection->query($query);
+    }
 
     private function findby(
         ?string $phrase,

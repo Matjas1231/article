@@ -100,6 +100,7 @@ class ArticleController extends Controller
     {
         if ($this->request->hasPost()) {
             $number = (int) $this->request->postParam('seederNumber');
+            $this->articleModel->truncate();
             for ($i = 0; $i < $number; $i++) {
                 $this->articleModel->create([
                     'title' => 'title' . $i,

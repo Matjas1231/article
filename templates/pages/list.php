@@ -9,6 +9,7 @@
     $order = $sort['order'] ?? 'asc';
 
     $phrase = $params['phrase'] ?? null;    
+    dump($_SESSION);
 ?>
 
 <div style="margin-bottom: 10px;">
