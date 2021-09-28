@@ -18,18 +18,20 @@ class UserModel extends Model
     public function searchUser(string $username, string $password): bool
     {        
         $user = $this->connection->quote($username, PDO::PARAM_STR);
-        $query = "SELECT username, password FROM users WHERE username=$user";
+        $query = "SELECT username, password, is_admin FROM users WHERE username=$user";
         $result = $this->connection->query($query, PDO::FETCH_ASSOC)->fetch();
-        // dd($result);
-        // dump($passwordUser);
-        // dump($result['password']);
-        // dd(password_verify($passwordUser, $result['password']));
-        
         if(password_verify($password, $result['password']) === false) {
             dd('HASŁO SIĘ NIE ZGADZA');            
         }
+        $isAdminNumber = (int) $result['is_admin'];
         $_SESSION['username'] = $username;
+        $_SESSION['is_admin'] = $this->isAdmin($isAdminNumber);
         return true;
+    }
+
+    private function isAdmin(int $number): bool
+    {
+        return true ? $number == 1 : false;
     }
     
 }

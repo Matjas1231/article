@@ -25,9 +25,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true): ?>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">Panel Admina</a>
+            </li>
+          <?php endif; ?>
           <li class="nav-item">
-            <a class="nav-link" href="/">Lista artykułów
-            </a>
+            <a class="nav-link" href="/">Lista artykułów</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/?action=create">Utwórz artykuł</a>
